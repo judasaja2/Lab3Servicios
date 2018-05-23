@@ -1,5 +1,6 @@
 package lab3.gr05_20181.compumovil.udea.edu.co.lab3servicios;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity
 
     private TextView mResponseTv;
     private Retrofit retrofit;
-    private static APIService mApiService;
+    public static APIService mApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,21 +126,28 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        Intent intent = null;
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_bebidas) {
+            intent = new Intent(getApplicationContext(), BebidasActivity.class);
+        }/* else if (id == R.id.nav_platos) {
+            intent = new Intent(getApplicationContext(), PlatosActivity.class);
+        } else if (id == R.id.nav_perfil) {
+            intent = new Intent(getApplicationContext(), PerfilActivity.class);
+            intent.putExtra("Usuario", Usuario);
+        } else if (id == R.id.nav_acerca) {
+            //intent = new Intent(getApplicationContext(), AcercaActivity.class);
+        } else if (id == R.id.nav_configuracion) {
+            intent = new Intent(getApplicationContext(), ConfiguracionesActivity.class);
+            intent.putExtra("Usuario", Usuario);
+        } else if (id == R.id.nav_cerrar_sesion) {
+            //intent = new Intent(getApplicationContext(), CerrarSesionActivity.class);
+        }*/
+        if(intent != null) {
+            startActivity(intent);
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

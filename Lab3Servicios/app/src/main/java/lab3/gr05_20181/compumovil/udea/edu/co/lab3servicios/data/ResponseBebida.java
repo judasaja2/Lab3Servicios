@@ -20,6 +20,13 @@ public class ResponseBebida {
     @Expose
     private Integer id;
 
+    public ResponseBebida(String nombre, String ingredientes, Integer precio, String foto) {
+        this.nombre = nombre;
+        this.ingredientes = ingredientes;
+        this.precio = precio;
+        this.foto = foto;
+    }
+
     public String getNombre() {
         return nombre;
     }
