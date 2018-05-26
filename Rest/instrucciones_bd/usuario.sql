@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `Usuario`(
   `apellido` varchar(30) NOT NULL,
   `correo` varchar(30) NOT NULL,
   `contrasena` varchar(10) DEFAULT NULL,
-  `foto` varchar(50) DEFAULT NULL,
+  `foto` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
 --

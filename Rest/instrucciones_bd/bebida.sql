@@ -1,4 +1,4 @@
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+﻿SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 --
 -- Database: mydatabase
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `Bebida`(
   `nombre` varchar(30) NOT NULL,
   `ingredientes` varchar(50) NOT NULL,
   `precio` int(10) NOT NULL,
-  `foto` varchar(50) DEFAULT NULL,
+  `foto` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
 --
