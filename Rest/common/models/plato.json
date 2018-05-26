@@ -1,0 +1,43 @@
+{
+  "name": "Plato",
+  "plural": "Platos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "ingredientes": {
+      "type": "string",
+      "required": true
+    },
+    "horario": {
+      "type": "string",
+      "required": true
+    },
+    "tipo": {
+      "type": "string",
+      "required": true
+    },
+    "tiempo": {
+      "type": "string",
+      "required": true
+    },
+    "foto": {
+      "type": "string",
+      "required": true
+    },
+    "precio": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

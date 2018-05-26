@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPlatosActivity">
+
+    <EditText
+        android:id="@+id/editTextNombrePlato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/editText_platos_nombre"
+        android:inputType="textCapSentences"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonGaleriaPlato"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/button_platos_foto"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewPlato"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNombrePlato" />
+
+    <CheckBox
+        android:id="@+id/nocheRb"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/checkButton_platos_noche"
+        app:layout_constraintBottom_toTopOf="@+id/grupoRadios"
+        app:layout_constraintStart_toStartOf="@+id/tardeRb"
+        app:layout_constraintTop_toBottomOf="@+id/tardeRb" />
+
+    <CheckBox
+        android:id="@+id/mañanaRb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/checkButton_platos_mañana"
+        app:layout_constraintBottom_toTopOf="@+id/tardeRb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPrecioPlato" />
+
+    <CheckBox
+        android:id="@+id/tardeRb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkButton_platos_tarde"
+        app:layout_constraintBottom_toTopOf="@+id/nocheRb"
+        app:layout_constraintStart_toStartOf="@+id/mañanaRb"
+        app:layout_constraintTop_toBottomOf="@+id/mañanaRb" />
+
+    <EditText
+        android:id="@+id/editTextIngredientesPlato"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/editText_platos_ingredientes"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewPlato"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonGaleriaPlato" />
+
+    <EditText
+        android:id="@+id/editTextPrecioPlato"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/editText_platos_precio"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewPlato"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIngredientesPlato" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="197dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/botonRegistrar"
+        app:layout_constraintEnd_toEndOf="@+id/tiempoCoccion"
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toStartOf="@+id/tiempoCoccion"
+        app:layout_constraintTop_toBottomOf="@+id/tiempoCoccion" />
+
+    <RadioGroup
+        android:id="@+id/grupoRadios"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/botonRegistrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nocheRb">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_weight="1"
+            android:text="@string/radioButton_paltos_platoFuerte" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="@string/radioButton_paltos_entrada" />
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/imageViewPlato"
+        android:layout_width="155dp"
+        android:layout_height="210dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="false"
+        android:background="@android:drawable/alert_dark_frame"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/botonGaleriaPlato"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNombrePlato" />
+
+    <Button
+        android:id="@+id/botonRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/button_platos_guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grupoRadios" />
+
+    <EditText
+        android:id="@+id/tiempoCoccion"
+        android:layout_width="173dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="none|textPersonName"
+        android:text="@string/editText_platos_tiempo"
+        app:layout_constraintBottom_toTopOf="@+id/numberPicker"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPlato"
+        tools:clickable="false"
+        tools:layout_editor_absoluteX="184dp" />
+
+</android.support.constraint.ConstraintLayout>

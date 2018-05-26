@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Perfil">
+
+        <EditTextPreference
+            android:title="Editar Nombre"
+            android:summary="El nombre que aparecerá en el perfil."
+            android:key="nombre"
+            android:defaultValue=" " />
+
+        <EditTextPreference
+            android:title="Editar Apellido"
+            android:summary="El apellido que aparecerá en el perfil."
+            android:key="apellido"
+            android:defaultValue=" " />
+
+        <EditTextPreference
+            android:title="Editar Foto"
+            android:summary="La foto que aparecerá en el perfil."
+            android:key="foto"
+            android:defaultValue=" " />
+
+        <EditTextPreference
+            android:title="Editar Contraseña"
+            android:summary="La contraseña asociada a la cuenta."
+            android:key="contraseña"
+            android:defaultValue=" "/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Sesión">
+
+        <CheckBoxPreference
+            android:title="Mantener Sesión"
+            android:summary="Si está seleccionado la sesión no se cerrará al cerrar la aplicación."
+            android:key="mantener_sesion"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Notificaciones">
+
+        <CheckBoxPreference
+            android:title="Autorizar Notificaciones"
+            android:summary="Si está seleccionado la aplicación le notificará eventos."
+            android:key="autorizar_notificaciones"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:title="Sonido de Notificaciones"
+            android:summary="Si está seleccionado la aplicación hará sonidos al notificarle un evento."
+            android:key="sonido_notificaciones"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

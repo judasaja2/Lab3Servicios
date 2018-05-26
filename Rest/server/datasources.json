@@ -1,0 +1,32 @@
+{
+  "usuariodatasource": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "url": "",
+    "database": "laboratorio3",
+    "password": "root",
+    "name": "usuariodatasource",
+    "user": "root",
+    "connector": "mysql"
+  },
+  "bebidadatasource": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "url": "",
+    "database": "laboratorio3",
+    "password": "root",
+    "name": "bebidadatasource",
+    "user": "root",
+    "connector": "mysql"
+  },
+  "platodatasource": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "url": "",
+    "database": "laboratorio3",
+    "password": "root",
+    "name": "platodatasource",
+    "user": "root",
+    "connector": "mysql"
+  }
+}

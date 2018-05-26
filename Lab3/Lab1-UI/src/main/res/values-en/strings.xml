@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LabsCM20181</string>
+    <string name="button_bebidas">Drinks</string>
+    <string name="editText_bebidas_nombre">Name</string>
+    <string name="button_bebidas_foto">Picture</string>
+    <string name="editText_bebidas_ingredientes">Ingredients</string>
+    <string name="editText_bebidas_precio">Value</string>
+    <string name="button_bebidas_guardar">Save</string>
+    <string name="button_platos">Food</string>
+    <string name="editText_platos_nombre">Name</string>
+    <string name="editText_platos_tiempo">Cooking Time</string>
+    <string name="button_platos_foto">Picture</string>
+    <string name="platos_horario">Schedule</string>
+    <string name="checkButton_platos_mañana">Morning</string>
+    <string name="checkButton_platos_tarde">Afternoon</string>
+    <string name="checkButton_platos_noche">Evening</string>
+    <string name="radioButton_paltos_platoFuerte">Main Plate</string>
+    <string name="radioButton_paltos_entrada">Entrance Plate</string>
+    <string name="editText_platos_precio">Value</string>
+    <string name="editText_platos_ingredientes">Ingredients</string>
+    <string name="button_platos_guardar">Save</string>
+    <string name="overFlowMenu_limpiar">Clean</string>
+    <string name="overFlowMenu_salir">Exit</string>
+    <string name="overFlowMenu_cambiarIdioma">Change Language</string>
+</resources>
