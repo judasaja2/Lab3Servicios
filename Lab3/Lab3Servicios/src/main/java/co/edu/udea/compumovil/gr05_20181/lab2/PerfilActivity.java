@@ -11,26 +11,34 @@ import com.bumptech.glide.Glide;
 
 public class PerfilActivity extends AppCompatActivity {
 
-    ImageView imagen;
-    TextView nombre, correo;
+    private ImageView imagen;
+    private TextView nombre, correo;
+    private String nombreUsuario, apellidoUsuario, correoUsuario, fotoUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ConfiguracionesActivity configuracionesActivity = new ConfiguracionesActivity();
         setContentView(R.layout.activity_perfil);
+        getExtras();
+
         imagen = findViewById(R.id.imagen);
         nombre = findViewById(R.id.campoNombre2);
         correo = findViewById(R.id.campoCorreo2);
-        //dbHelper db = new dbHelper(getApplicationContext());
-        String Usuario= getIntent().getStringExtra("Usuario");
-        //Cursor c = db.obtenerUsuarioPorCorreo(Usuario);
-        //c.moveToNext();
-        nombre.setText(configuracionesActivity.getKeyPrefNombre(getApplicationContext()) + " " + configuracionesActivity.getKeyPrefApellido(getApplicationContext()));
-        correo.setText(Usuario);
-        Uri uri = Uri.parse(configuracionesActivity.getKeyPrefFoto(getApplicationContext()));
+        String Usuario = getIntent().getStringExtra("nombreUsuario") + " " + getIntent().getExtras();
+        nombre.setText(nombreUsuario + " " +  apellidoUsuario);
+        correo.setText(correoUsuario);
+        Uri uri = Uri.parse(fotoUsuario);
         Glide.with(PerfilActivity.this)
                 .load(uri)
                 .into(imagen);
+    }
+
+    public void getExtras(){
+        Bundle bundle = getIntent().getExtras();
+        this.nombreUsuario = bundle.getString("NombreUsuario");
+        this.apellidoUsuario = bundle.getString("apellidoUsuario");
+        this.correoUsuario = bundle.getString("correoUsuario");
+        this.fotoUsuario = bundle.getString("fotoUsuario");
     }
 }

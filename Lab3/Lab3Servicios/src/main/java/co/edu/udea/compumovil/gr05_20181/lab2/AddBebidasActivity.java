@@ -125,7 +125,6 @@ public class AddBebidasActivity extends AppCompatActivity {
             } catch (IOException e) {
                 Log.e("ERROR: ", e.toString());
             }
-
             return null;
         }
     }

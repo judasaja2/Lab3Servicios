@@ -121,7 +121,6 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         Intent intent = null;
         int id = item.getItemId();
-        String Usuario= getIntent().getStringExtra("Usuario");
 
         if (id == R.id.nav_bebidas) {
             intent = new Intent(getApplicationContext(), BebidasActivity.class);
@@ -129,12 +128,18 @@ public class MainActivity extends AppCompatActivity
             intent = new Intent(getApplicationContext(), PlatosActivity.class);
         } else if (id == R.id.nav_perfil) {
             intent = new Intent(getApplicationContext(), PerfilActivity.class);
-            intent.putExtra("Usuario", Usuario);
+            intent.putExtra("nombreUsuario", this.nombreUsuario);
+            intent.putExtra("apellidoUsuario", this.apellidoUsuario);
+            intent.putExtra("correoUsuario", this.correoUsuario);
+            intent.putExtra("fotoUsuario", this.fotoUsuario);
         } else if (id == R.id.nav_acerca) {
             //intent = new Intent(getApplicationContext(), AcercaActivity.class);
         } else if (id == R.id.nav_configuracion) {
             intent = new Intent(getApplicationContext(), ConfiguracionesActivity.class);
-            intent.putExtra("Usuario", Usuario);
+            intent.putExtra("nombreUsuario", this.nombreUsuario);
+            intent.putExtra("apellidoUsuario", this.apellidoUsuario);
+            intent.putExtra("correoUsuario", this.correoUsuario);
+            intent.putExtra("fotoUsuario", this.fotoUsuario);
         } else if (id == R.id.nav_cerrar_sesion) {
             //intent = new Intent(getApplicationContext(), CerrarSesionActivity.class);
         }

@@ -91,6 +91,8 @@ public class LoginActivity extends AppCompatActivity{
             comprobacion = false;
             String email = mEmailView.getText().toString();
             String password = mPasswordView.getText().toString();
+            email = "PRUEBA";
+            password = "PRUEBA";
             try {
                 Call<List<ResponseUsuario>> response = mApiService.getUsers();
                 for (ResponseUsuario usuario : response.execute().body()){

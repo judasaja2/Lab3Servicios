@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,27 +28,45 @@ import static co.edu.udea.compumovil.gr05_20181.lab2.LoginActivity.mApiService;
 public class PlatosActivity extends AppCompatActivity {
 
     private Menu menu;
+    private Button buttonBuscarPlato;
+    private FloatingActionButton fabAddPlato, fabActualizarPlato;
+    private EditText editTextBuscarPlato;
     private static RecyclerView recyclerViewPlato;
     private static RecyclerViewAdapterPlato adaptadorPlato;
     private static ResponsePlato plato;
     private static List<ResponsePlato> platos;
+    private static List<ResponsePlato> platosBusqueda;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_platos);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabAddPlato);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fabAddPlato = (FloatingActionButton) findViewById(R.id.fabAddPlato);
+        fabAddPlato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AddPlatosActivity.class);
                 startActivity(intent);
             }
         });
-
+        editTextBuscarPlato = findViewById(R.id.editTextBuscarPlato);
+        buttonBuscarPlato = findViewById(R.id.buttonBuscarPlato);
+        buttonBuscarPlato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarPlatos("Search");
+            }
+        });
+        fabActualizarPlato = findViewById(R.id.fabActualizarPlato);
+        fabActualizarPlato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarPlatos("All");
+            }
+        });
         recyclerViewPlato = (RecyclerView) findViewById(R.id.recycler_platos);
-        actualizarPlatos();
+        mostrarPlatos("All");
     }
 
     @Override
@@ -72,15 +92,29 @@ public class PlatosActivity extends AppCompatActivity {
         return true;
     }
 
-    private void actualizarPlatos(){
+    private void mostrarPlatos(final String Option) {
         new PeticionPlatoGet().execute();
         new Handler().postDelayed(new Runnable(){
             public void run(){
                 recyclerViewPlato.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                adaptadorPlato = new RecyclerViewAdapterPlato(platos);
+                if(Option.equals("All")) {
+                    adaptadorPlato = new RecyclerViewAdapterPlato(platos);
+                } else if(Option.equals("Search")){
+                    buscarPlatos(editTextBuscarPlato.getText().toString());
+                    adaptadorPlato = new RecyclerViewAdapterPlato(platosBusqueda);
+                }
                 recyclerViewPlato.setAdapter(adaptadorPlato);
             };
         }, 250);
+    }
+
+    private void buscarPlatos(final String termino){
+        platosBusqueda = new ArrayList<>();
+        for(ResponsePlato plato : platos){
+            if(plato.getNombre().toLowerCase().equals(termino.toLowerCase())){
+                platosBusqueda.add(plato);
+            }
+        }
     }
 
     public static class PeticionPlatoGet extends AsyncTask<Void, Void, Void> {
