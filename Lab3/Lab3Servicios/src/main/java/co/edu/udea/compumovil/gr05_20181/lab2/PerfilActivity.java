@@ -29,7 +29,7 @@ public class PerfilActivity extends AppCompatActivity {
         nombre.setText(nombreUsuario + " " +  apellidoUsuario);
         correo.setText(correoUsuario);
         Uri uri = Uri.parse(fotoUsuario);
-        Glide.with(PerfilActivity.this)
+        Glide.with(getApplicationContext())
                 .load(uri)
                 .into(imagen);
     }

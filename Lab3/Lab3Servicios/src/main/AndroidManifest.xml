@@ -24,10 +24,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RegistroActivity" />
+        <activity android:name=".MainActivity"
+            android:label="Servicios" />
+        <activity android:name=".RegistroActivity"
+            android:label="Registro" />
         <activity
             android:name=".BebidasActivity"
+            android:label="Bebidas"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustNothing">
             <meta-data
@@ -36,6 +39,7 @@
         </activity>
         <activity
             android:name=".PlatosActivity"
+            android:label="Platos"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustNothing">
             <meta-data
@@ -44,19 +48,21 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="Ingresar" />
         <activity android:name=".PerfilActivity" />
         <activity
             android:name=".ConfiguracionesActivity"
-            android:label="Settings"
+            android:label="Configuraciones"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".AddBebidasActivity" />
-        <activity android:name=".AddPlatosActivity"></activity>
+        <activity android:name=".AddBebidasActivity"
+            android:label="Añadir Bebidas" />
+        <activity android:name=".AddPlatosActivity"
+            android:label="Añadir Platos" />
     </application>
 
 </manifest>

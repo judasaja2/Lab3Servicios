@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,7 +18,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import co.edu.udea.compumovil.gr05_20181.lab2.data.remote.APIService;
 import retrofit2.Retrofit;
@@ -33,6 +38,8 @@ public class MainActivity extends AppCompatActivity
     SharedPreferences sharedPreferences = null;
     public static Context contextMain;
     private String nombreUsuario, apellidoUsuario, correoUsuario, fotoUsuario;
+    private TextView navHeaderMainNombre, navHeaderMainCorreo;
+    private ImageView navHeaderMainFoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +105,16 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        navHeaderMainNombre = findViewById(R.id.navHeaderMainNombre);
+        navHeaderMainCorreo = findViewById(R.id.navHeaderMainCorreo);
+        navHeaderMainFoto = findViewById(R.id.navHeaderMainFoto);
+
+        navHeaderMainNombre.setText("Nombrazo");
+        navHeaderMainCorreo.setText(correoUsuario);
+        Uri uri = Uri.parse(fotoUsuario);
+        Glide.with(getApplicationContext())
+                .load(uri)
+                .into(navHeaderMainFoto);
         return true;
     }
 
