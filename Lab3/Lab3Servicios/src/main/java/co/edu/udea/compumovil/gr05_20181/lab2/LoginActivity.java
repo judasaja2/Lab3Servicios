@@ -71,10 +71,10 @@ public class LoginActivity extends AppCompatActivity{
             public void run(){
                 if (comprobacion) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    intent.putExtra("NombreUsuario", usuarioLogueado.getNombre());
-                    intent.putExtra("ApellidoUsuario", usuarioLogueado.getApellido());
-                    intent.putExtra("CorreoUsuario", usuarioLogueado.getCorreo());
-                    intent.putExtra("FotoUsuario", usuarioLogueado.getFoto());
+                    intent.putExtra("nombreUsuario", usuarioLogueado.getNombre());
+                    intent.putExtra("apellidoUsuario", usuarioLogueado.getApellido());
+                    intent.putExtra("correoUsuario", usuarioLogueado.getCorreo());
+                    intent.putExtra("fotoUsuario", usuarioLogueado.getFoto());
                     startActivity(intent);
                 } else {
                     Snackbar.make(view, "Correo o contraseña vacíos o incorrectos.", Snackbar.LENGTH_SHORT)

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity
     private String current_language;
     SharedPreferences sharedPreferences = null;
     public static Context contextMain;
+    private String nombreUsuario, apellidoUsuario, correoUsuario, fotoUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = getSharedPreferences("co.edu.udea.compumovil.gr05_20181.lab2", MODE_PRIVATE);
 
         contextMain = getApplicationContext();
+
+        getExtras();
     }
 
     @Override
@@ -116,7 +119,6 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         Intent intent = null;
         int id = item.getItemId();
         String Usuario= getIntent().getStringExtra("Usuario");
@@ -144,8 +146,13 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public static void showToast(Context context, String message){
-        Toast toast = Toast.makeText(context, message, Toast.LENGTH_LONG);
-        toast.show();
+    public void getExtras(){
+        Bundle bundle = getIntent().getExtras();
+        this.nombreUsuario = bundle.getString("NombreUsuario");
+        this.apellidoUsuario = bundle.getString("apellidoUsuario");
+        this.correoUsuario = bundle.getString("correoUsuario");
+        this.fotoUsuario = bundle.getString("fotoUsuario");
     }
+
+
 }
