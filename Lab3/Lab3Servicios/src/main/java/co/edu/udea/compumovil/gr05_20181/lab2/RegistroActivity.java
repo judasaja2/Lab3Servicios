@@ -1,8 +1,10 @@
 package co.edu.udea.compumovil.gr05_20181.lab2;
 
 import android.Manifest;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,6 +36,7 @@ public class RegistroActivity extends AppCompatActivity {
     private static String datosRecuperados;
     private static ImageView iv_image;
     private static EditText campoNombre, campoApellido, campoContraseña,campoCorreo;
+    private static boolean registrado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,14 @@ public class RegistroActivity extends AppCompatActivity {
            @Override
            public void onClick(View view) {
                new PeticionUsuarioPost().execute();
+
+               if(registrado){
+                   Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                   startActivity(intent);
+               } else {
+                   Snackbar.make(view, "No fue posible completar el registro.", Snackbar.LENGTH_SHORT)
+                           .setAction("Action", null).show();
+               }
            }
        });
 
@@ -98,6 +109,7 @@ public class RegistroActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
+            registrado = false;
             String nombre, apellido, correo, contraseña, foto;
             nombre = String.valueOf(campoNombre.getText());
             apellido = String.valueOf(campoApellido.getText());
@@ -107,8 +119,10 @@ public class RegistroActivity extends AppCompatActivity {
             try {
                 Call<ResponseUsuario> response = mApiService.postUser(nombre.trim(), apellido.trim(), correo.trim(), contraseña.trim(), foto);
                 response.execute();
+                registrado = true;
             } catch (IOException e) {
                 Log.e("ERROR: ", e.toString());
+                registrado = false;
             }
             return null;
         }

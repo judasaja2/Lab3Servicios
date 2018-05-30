@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity{
             }
         });
 
-        final String url = "http://192.168.1.73:3000/";
+        final String url = "http://192.168.194.6:3000/";
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)

@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = getSharedPreferences("co.edu.udea.compumovil.gr05_20181.lab2", MODE_PRIVATE);
 
         contextMain = getApplicationContext();
+        startService(new Intent(MainActivity.this, MyService.class)); // AQUI SE INCIIA EL SERVICE
 
         mainContentBebidaImage = findViewById(R.id.mainContentBebidaImage);
         mainContentPlatoImage = findViewById(R.id.mainContentPlatoImage);
@@ -81,9 +82,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
-
-        //getExtras();
     }
 
     @Override
@@ -93,6 +91,12 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         }
     }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        stopService(new Intent(MainActivity.this, MyService.class));
+    }
+
 
     @Override
     protected void onResume() {

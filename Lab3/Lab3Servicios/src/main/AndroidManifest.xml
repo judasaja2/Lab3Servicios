@@ -24,9 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:label="Servicios" />
-        <activity android:name=".RegistroActivity"
+        <activity
+            android:name=".RegistroActivity"
             android:label="Registro" />
         <activity
             android:name=".BebidasActivity"
@@ -59,10 +61,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".AddBebidasActivity"
+        <activity
+            android:name=".AddBebidasActivity"
             android:label="Añadir Bebidas" />
-        <activity android:name=".AddPlatosActivity"
+        <activity
+            android:name=".AddPlatosActivity"
             android:label="Añadir Platos" />
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
