@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             public void run(){
                 Intent intent = null;
-                if(!continuarSesion) {
+                if(!continuarSesion || 0 == 0) {
                     intent = new Intent(getApplicationContext(), LoginActivity.class);
                 } else {
                     intent = new Intent(getApplicationContext(), MainActivity.class);

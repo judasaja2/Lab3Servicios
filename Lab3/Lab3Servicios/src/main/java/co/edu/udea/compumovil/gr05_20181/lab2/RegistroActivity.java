@@ -19,6 +19,7 @@ import com.gun0912.tedpermission.TedPermission;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import co.edu.udea.compumovil.gr05_20181.lab2.data.ResponseUsuario;
 import gun0912.tedbottompicker.TedBottomPicker;
@@ -33,7 +34,6 @@ public class RegistroActivity extends AppCompatActivity {
     private static String datosRecuperados;
     private static ImageView iv_image;
     private static EditText campoNombre, campoApellido, campoContraseña,campoCorreo;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

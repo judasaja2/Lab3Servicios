@@ -39,24 +39,16 @@ public class MainActivity extends AppCompatActivity
     public static Context contextMain;
     private String nombreUsuario, apellidoUsuario, correoUsuario, fotoUsuario;
     private TextView navHeaderMainNombre, navHeaderMainCorreo;
-    private ImageView navHeaderMainFoto;
+    private ImageView mainContentBebidaImage, mainContentPlatoImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getExtras();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -71,7 +63,27 @@ public class MainActivity extends AppCompatActivity
 
         contextMain = getApplicationContext();
 
-        getExtras();
+        mainContentBebidaImage = findViewById(R.id.mainContentBebidaImage);
+        mainContentPlatoImage = findViewById(R.id.mainContentPlatoImage);
+
+        mainContentBebidaImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BebidasActivity.class);
+                startActivity(intent);
+            }
+        });
+        mainContentPlatoImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PlatosActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        //getExtras();
     }
 
     @Override
@@ -134,11 +146,7 @@ public class MainActivity extends AppCompatActivity
         Intent intent = null;
         int id = item.getItemId();
 
-        if (id == R.id.nav_bebidas) {
-            intent = new Intent(getApplicationContext(), BebidasActivity.class);
-        } else if (id == R.id.nav_platos) {
-            intent = new Intent(getApplicationContext(), PlatosActivity.class);
-        } else if (id == R.id.nav_perfil) {
+        if (id == R.id.nav_perfil) {
             intent = new Intent(getApplicationContext(), PerfilActivity.class);
             intent.putExtra("nombreUsuario", this.nombreUsuario);
             intent.putExtra("apellidoUsuario", this.apellidoUsuario);
@@ -146,12 +154,6 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra("fotoUsuario", this.fotoUsuario);
         } else if (id == R.id.nav_acerca) {
             //intent = new Intent(getApplicationContext(), AcercaActivity.class);
-        } else if (id == R.id.nav_configuracion) {
-            intent = new Intent(getApplicationContext(), ConfiguracionesActivity.class);
-            intent.putExtra("nombreUsuario", this.nombreUsuario);
-            intent.putExtra("apellidoUsuario", this.apellidoUsuario);
-            intent.putExtra("correoUsuario", this.correoUsuario);
-            intent.putExtra("fotoUsuario", this.fotoUsuario);
         } else if (id == R.id.nav_cerrar_sesion) {
             //intent = new Intent(getApplicationContext(), CerrarSesionActivity.class);
         }

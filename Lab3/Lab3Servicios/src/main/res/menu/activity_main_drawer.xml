@@ -5,14 +5,6 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_bebidas"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/bebidas" />
-        <item
-            android:id="@+id/nav_platos"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/platos" />
-        <item
             android:id="@+id/nav_perfil"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/perfil" />
@@ -24,10 +16,6 @@
                 android:id="@+id/nav_acerca"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/acerca" />
-            <item
-                android:id="@+id/nav_configuracion"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="@string/configuracion" />
             <item
                 android:id="@+id/nav_cerrar_sesion"
                 android:icon="@drawable/ic_menu_share"
