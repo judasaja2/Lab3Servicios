@@ -82,9 +82,6 @@ public class RegistroActivity extends AppCompatActivity {
                         public void onImageSelected(Uri uri) {
                            Uri selectedUri = uri;
                             datosRecuperados = String.valueOf(selectedUri);
-                            Glide.with(getApplicationContext())
-                                    .load(uri)
-                                    .into(iv_image);
                         }
                     })
                     .create();
@@ -108,7 +105,7 @@ public class RegistroActivity extends AppCompatActivity {
             contraseña = String.valueOf(campoContraseña.getText());
             foto = datosRecuperados;
             try {
-                Call<ResponseUsuario> response = mApiService.postUser(nombre.trim(), apellido.trim(), correo.trim(), contraseña.trim(), "foto");
+                Call<ResponseUsuario> response = mApiService.postUser(nombre.trim(), apellido.trim(), correo.trim(), contraseña.trim(), foto);
                 response.execute();
             } catch (IOException e) {
                 Log.e("ERROR: ", e.toString());

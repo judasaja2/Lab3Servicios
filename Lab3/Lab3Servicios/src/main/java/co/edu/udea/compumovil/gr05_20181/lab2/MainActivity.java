@@ -107,14 +107,9 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main, menu);
         navHeaderMainNombre = findViewById(R.id.navHeaderMainNombre);
         navHeaderMainCorreo = findViewById(R.id.navHeaderMainCorreo);
-        navHeaderMainFoto = findViewById(R.id.navHeaderMainFoto);
 
-        navHeaderMainNombre.setText("Nombrazo");
+        navHeaderMainNombre.setText(nombreUsuario);
         navHeaderMainCorreo.setText(correoUsuario);
-        Uri uri = Uri.parse(fotoUsuario);
-        Glide.with(getApplicationContext())
-                .load(uri)
-                .into(navHeaderMainFoto);
         return true;
     }
 
@@ -170,7 +165,7 @@ public class MainActivity extends AppCompatActivity
 
     public void getExtras(){
         Bundle bundle = getIntent().getExtras();
-        this.nombreUsuario = bundle.getString("NombreUsuario");
+        this.nombreUsuario = bundle.getString("nombreUsuario");
         this.apellidoUsuario = bundle.getString("apellidoUsuario");
         this.correoUsuario = bundle.getString("correoUsuario");
         this.fotoUsuario = bundle.getString("fotoUsuario");
